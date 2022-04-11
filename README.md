@@ -2,6 +2,11 @@
 
 This is monorepo for fullstack-challenge.
 
+Tech stack:
+FE: Reactjs
+BE: Nestjs
+Framework: Nx framework for managing monorepo
+
 Currently, it has
 
 - portal-web
