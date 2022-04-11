@@ -1,0 +1,66 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": [
+      "apps/front-api/tsconfig.app.json",
+      "libs/front-api/tsconfig.lib.json",
+      "**/front-api/jest.config.js"
+    ],
+    "sourceType": "module"
+  },
+  "plugins": [
+    "@typescript-eslint/eslint-plugin",
+    "prettier",
+    "simple-import-sort",
+    "import"
+  ],
+  "extends": [
+    "prettier",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "root": true,
+  "env": {
+    "node": true,
+    "jest": true
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".ts",
+          ".js",
+          "json"
+        ]
+      }
+    }
+  },
+  "ignorePatterns": [
+    ".eslintrc.json"
+  ],
+  "rules": {
+    "no-underscore-dangle": "off",
+    "no-useless-constructor": "off",
+    "no-return-await": "off",
+    "consistent-return": "off",
+    "prefer-destructuring": "off",
+    "no-param-reassign": [
+      "error",
+      {
+        "props": false
+      }
+    ],
+    "class-methods-use-this": "off",
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": "error",
+    "@typescript-eslint/interface-name-prefix": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "import/prefer-default-export": "off",
+    "import/extensions": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/no-duplicates": "error",
+    "import/newline-after-import": "error",
+    "array-bracket-spacing": 0,
+    "nx-enforce-module-boundaries": "off"
+  }
+}

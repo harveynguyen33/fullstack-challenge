@@ -1,0 +1,21 @@
+{
+  "root": "libs/front-api/feature/movie",
+  "sourceRoot": "libs/front-api/feature/movie",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/front-api/feature/movie/**/*.ts", "libs/front-api/feature/movie/*.ts"]
+      },
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/front-api/feature/movie"],
+      "options": {
+        "jestConfig": "libs/front-api/feature/movie/jest.config.js"
+      }
+    }
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "root": "apps/portal-web",
+  "sourceRoot": "apps/portal-web/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/portal-web",
+        "index": "apps/portal-web/src/index.html",
+        "main": "apps/portal-web/src/index.tsx",
+        "polyfills": "apps/portal-web/src/polyfills.ts",
+        "tsConfig": "apps/portal-web/tsconfig.app.json",
+        "assets": ["apps/portal-web/src/favicon.png", "apps/portal-web/src/assets"],
+        "styles": ["apps/portal-web/src/styles.scss"],
+        "scripts": [],
+        "optimization": true
+      },
+      "configurations": {
+        "stage": {
+          "fileReplacements": [
+            {
+              "replace": "apps/portal-web/src/environments/environment.ts",
+              "with": "apps/portal-web/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "extractCss": true,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            }
+          ]
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/portal-web/src/environments/environment.ts",
+              "with": "apps/portal-web/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "extractCss": true,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "portal-web:build",
+        "hmr": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "portal-web:build:production",
+          "hmr": false
+        }
+      }
+    },
+
+    "serveAll": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "nx run front-api:serve"
+          },
+          {
+            "command": "nx run portal-web:serve"
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/portal-web/**/*.{ts,tsx,js,jsx}"]
+      },
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/portal-web"],
+      "options": {
+        "jestConfig": "apps/portal-web/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

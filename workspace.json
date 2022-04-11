@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "projects": {
+    "front-api": "apps/front-api",
+    "front-api-feature-movie": "libs/front-api/feature/movie",
+    "portal-web": "apps/portal-web"
+  }
+}

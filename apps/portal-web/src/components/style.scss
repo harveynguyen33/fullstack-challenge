@@ -1,0 +1,57 @@
+h1 {
+  font-size: 32px;
+  left: 45%;
+  position: fixed;
+  top: 25%;
+  bottom: 0;
+  margin: auto;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+
+  td,
+  th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+}
+
+.pagination {
+  display: inline-block;
+  position: fixed;
+  top: 75%;
+  left: 40%;
+  bottom: 0;
+  margin: auto;
+  width: 100%;
+
+  .paginate-item {
+    cursor: pointer;
+    margin-right: 5px;
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+
+    &.active {
+      background-color: #4caf50;
+      color: white;
+    }
+
+    &:hover:not(.active) {
+      background-color: #ddd;
+    }
+  }
+}
